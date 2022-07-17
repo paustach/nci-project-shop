@@ -33,4 +33,7 @@
   <% end %>
 </div>
 
-<%= link_to "New product", new_product_path %>
+<!--- Admin access only --->
+<% if current_user.admin? %>  
+  <%= link_to "New product", new_product_path %>
+<% end %>

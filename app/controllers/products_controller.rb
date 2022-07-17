@@ -1,5 +1,14 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_admin, :only => [:edit, :destroy]
   before_action :set_product, only: %i[ show edit update destroy ]
+
+  #Restricting functionalities available to admin only 
+  def ensure_admin
+    unless current_user && current_user.admin?
+    render :text => "Access Error Message", :status => :unauthorized
+    end
+  end
 
   # GET /products or /products.json
   def index
