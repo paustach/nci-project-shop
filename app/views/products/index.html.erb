@@ -2,38 +2,56 @@
 
 <h1>Products</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-    LIST
-    </div>
+<!--- Admin access only --->
+<% if current_user.try(:admin?) %>  
+  <%= link_to "New product", new_product_path %>
 
+  <div class="container">
+    <div class="row row-cols-4">
+      <div class="col">
+        LIST LIST
+      </div>
+      <% @products.each do |product| %>
+      <div class="col">
+  
+        <div class="card" style="width: 18rem;">
+          <%= link_to image_tag(product.image_url(:profile_size)), product %> 
+          <div class="card-body">
+            <h5 class="card-title"><%= product.productName %></h5>
+            <p class="card-text"><%= product.description %></p>
+            <%= link_to "Show this product", product, class:"btn btn-primary" %>
+          </div>
+        </div>
+  
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+<!--- Admin access only end --->
+
+<% else %>
+
+<div class="container">
+  <div class="row row-cols-4">
+    <div class="col">
+      LIST LIST
+    </div>
+    <% @products.each do |product| %>
     <div class="col">
 
       <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <%= link_to image_tag(product.image_url(:profile_size)), product %> 
         <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title"><%= product.productName %></h5>
+          <p class="card-text"><%= product.description %></p>
+          <%= link_to "Show this product", product, class:"btn btn-primary" %>
         </div>
       </div>
 
     </div>
-    
+    <% end %>
   </div>
 </div>
 
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
-</div>
-
-<!--- Admin access only --->
-<% if current_user.admin? %>  
-  <%= link_to "New product", new_product_path %>
 <% end %>
