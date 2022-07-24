@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :initialize_cart
 
     def set_render_cart
-        @render_cart = true
+        @render_cart = false
     end
 
     def initialize_cart
