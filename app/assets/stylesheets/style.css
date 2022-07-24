@@ -47,29 +47,35 @@ ul {
     border-color: #120907;
 }
 
+.btn-admin {
+    background-color: blue;
+    color: white; 
+    border-color: transparent;
+    padding: 0.5rem 0.5rem;
+    letter-spacing: .1rem;
+    font-size: 1rem;
+    text-transform: none;
+    margin: 0.5rem 0.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.btn-admin:hover {
+    background-color: white;
+    color: blue; 
+    border-color: blue;
+}
+
 /*--- NAVBAR ---*/
 
 .navbar-custom .navbar-nav .nav-link {
     background-color: #F0EFE5;
-    color: #404245; 
+    color: #120907; 
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: #F0EFE5 !important;
-    text-decoration: underline;
-}
-
-.navbar-toggler {
-    color:#404245;
-}
-
-.nav-link {
-    color:#120907
-}
-
-.nav-link:hover {
-    color: white
+    color: #120907 !important;
 }
 
 /*--- Pictures ---*/
@@ -78,26 +84,10 @@ ul {
     opacity: 0.7;
 }
 
-/*--- OTHER CSS - TBC FOR USE ---*/
-.navbtn{
-    background-color: #638EA3;
-    border-color: transparent;
-    padding: 0.4rem 0.4rem;
-    letter-spacing: .1rem;
-    font-size: 1rem;
-    margin: 0 0.4rem;
-    border-radius: 20px
-}
-.outbtn:hover{
-    text-decoration: underline;
-}
+/*--- Other ---*/
 
-.actionlink{
-    text-decoration: none;
-    color: #F0F1EF;
-}
-
-.actionlink:hover{
-    text-decoration: none;
-    color: #F0F1EF;
+.center {
+    text-align: center;
+    justify-content: center;
+    align-items: center; 
 }

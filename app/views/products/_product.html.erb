@@ -1,48 +1,46 @@
 <div id="<%= dom_id product %>">
-  <p>
-    <strong>Image:</strong>
-    <%= image_tag "#{product.image}", width: "50%", height: "auto" %>
-  </p>
 
-  <%= form_with(url: cart_add_path) do |f| %>
-    <%= f.hidden_field :id, value: product.id %>
-    <%= f.number_field :quantity, value: 0, min: 1 %>
-    <%= f.submit "Add to cart" %>
-  <% end %>
+<div class="container">
+  <div class="row">
 
-  <p>
-    <strong>Productid:</strong>
-    <%= product.productID %>
-  </p>
+    <div class="col-md-6">
+      <%= image_tag "#{product.image}", class: "img-fluid" %>
+    </div>
 
-  <p>
-    <strong>Productname:</strong>
-    <%= product.productName %>
-  </p>
+    <div class="col-md-6">
 
-  <p>
-    <strong>Categoryid:</strong>
-    <%= product.categoryID %>
-  </p>
+    <p>
+      <strong><%= product.productName %></strong>
+    </p>
+    <p>
+      <%= product.categoryName %>
+    </p>
+    <p>
+      <strong>Size:</strong>
+      <%= product.size %>
+    </p>
+    <p>
+      <strong>Price:</strong>
+      <%= product.price %>
+    </p>
 
-  <p>
-    <strong>Categoryname:</strong>
-    <%= product.categoryName %>
-  </p>
+    <p>
+      <%= form_with(url: cart_add_path) do |f| %>
+      <%= f.hidden_field :id, value: product.id %>
+      <%= f.number_field :quantity, value: 0, min: 1 %>
+      <%= f.submit "Add to cart", class: "btn" %>
+    <% end %>
+    </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
+    <p>
+      <strong>Description:</strong>
+      <%= product.description %>
+    </p>
+    </div>
 
-  <p>
-    <strong>Size:</strong>
-    <%= product.size %>
-  </p>
+  </div>
+</div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
+ 
 
 </div>

@@ -18,8 +18,16 @@
           <%= link_to image_tag(product.image_url(:profile_size)), product %> 
           <div class="card-body">
             <h5 class="card-title"><%= product.productName %></h5>
-            <p class="card-text"><%= product.description %></p>
-            <%= link_to "Show this product", product, class:"btn btn-primary" %>
+              <p class="card-text">Size: <%= product.size %></p>
+              <p class="card-text"><%= product.price %></p>
+          
+              <%= form_with(url: cart_add_path) do |f| %>
+              <%= f.hidden_field :id, value: product.id %>
+              <%= f.number_field :quantity, value: 0, min: 1 %>
+              <%= f.submit "Add to cart", class: "btn" %>
+            <% end %>
+
+            <%= link_to "More info", product, class:"btn btn-primary" %>
           </div>
         </div>
   
@@ -44,8 +52,16 @@
         <%= link_to image_tag(product.image_url(:profile_size)), product %> 
         <div class="card-body">
           <h5 class="card-title"><%= product.productName %></h5>
-          <p class="card-text"><%= product.description %></p>
-          <%= link_to "Show this product", product, class:"btn btn-primary" %>
+          <p class="card-text">Size: <%= product.size %></p>
+          <p class="card-text"><%= product.price %></p>
+          
+              <%= form_with(url: cart_add_path) do |f| %>
+              <%= f.hidden_field :id, value: product.id %>
+              <%= f.number_field :quantity, value: 0, min: 1 %>
+              <%= f.submit "Add to cart", class: "btn" %>
+            <% end %>
+
+          <%= link_to "More info", product, class:"btn btn-primary" %>
         </div>
       </div>
 
