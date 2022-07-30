@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "contact", to:'pages#contact'
   get "faq", to:'pages#faq'
   get "shop", to: 'products#index'
+  get "privacy", to:'pages#privacypolicy'
   get '/signedinuserprofile' => 'profiles#signedinuserprofile'
   get "cart", to: 'cart#show'
   post 'cart/add'
