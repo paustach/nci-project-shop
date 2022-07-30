@@ -21,7 +21,7 @@
       <nav class="navbar navbar-expand-lg navbar-light navbar-custom bg-custom">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-          <img src="/assets/logo_transparent.png" width="80" height="80" alt="Logo">
+          <img src="/assets/logo_transparent.png" class="logolink" width="80" height="80" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -30,21 +30,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/shop">Shop</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/profiles">Profiles</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/profiles/new">New Profile</a>
             </li>
 
             <li class="nav-item">
@@ -58,6 +50,26 @@
             <li class="nav-item">
               <a class="nav-link" href="/contact">Contact</a>
             </li>
+
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <a class="nav-link" href="/signedinuserprofile">My profile</a>
+              </li>
+            <%end%>
+
+            <% if current_user.try(:admin?) %> 
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Admin Menu
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/profiles">Profiles</a></li>
+                <li><a class="dropdown-item" href="/profiles/new">New Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <%end%>
           </ul>
         </div>
       </div>
@@ -65,7 +77,7 @@
     </header>
     <!--HEADER & NAVBAR END -->
 
-    <!-- DEVISE --> 
+    <!-- DEVISE START --> 
 
     <% if user_signed_in? %>
       <div>Signed in as... <%= current_user.email %>
@@ -78,6 +90,8 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <!-- DEVISE END --> 
 
     <!-- BODY START --> 
     <body>
@@ -94,7 +108,7 @@
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
         <div class="col-md-4 d-flex align-items-center">
           <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <img class="bi" width="35" src="/assets/logo_transparent.png" alt="Logo">
+            <img class="bi logolink" width="35" src="/assets/logo_transparent.png" alt="Logo">
           </a>
           <span class="text-muted">© 2022 Paulina Stachera-Diaz</span>
         </div>

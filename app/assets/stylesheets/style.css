@@ -74,8 +74,12 @@ ul {
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-link.active {
-    color: #120907 !important;
+.navbar-light .navbar-nav  {
+    color: #F0EFE5 !important;
+    background-color: #120907 !important;
+}
+.nav-link.active {
+    color: #D65472 !important;
 }
 
 /*--- Pictures ---*/

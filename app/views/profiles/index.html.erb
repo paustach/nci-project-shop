@@ -1,14 +1,18 @@
 <p style="color: green"><%= notice %></p>
+<% if current_user.try(:admin?) %> 
+  <h1>Profiles</h1>
 
-<h1>Profiles</h1>
+  <div id="profiles">
+    <% @profiles.each do |profile| %>
+      <%= render profile %>
+      <p>
+        <%= link_to "Show this profile", profile %>
+      </p>
+    <% end %>
+  </div>
 
-<div id="profiles">
-  <% @profiles.each do |profile| %>
-    <%= render profile %>
-    <p>
-      <%= link_to "Show this profile", profile %>
-    </p>
-  <% end %>
-</div>
+  <%= link_to "New profile", new_profile_path %>
 
-<%= link_to "New profile", new_profile_path %>
+<%else%>
+  <p class="alert">You're not authorized to view this page.</p>
+<%end%>
