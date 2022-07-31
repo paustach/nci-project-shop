@@ -61,6 +61,7 @@
               <%= f.submit "Add to cart", class: "btn" %>
             <% end %>
 
+          <%= button_to "Buy now", checkout_create_path, params: {id: product.id}, remote: true %>
           <%= link_to "More info", product, class:"btn btn-primary" %>
         </div>
       </div>

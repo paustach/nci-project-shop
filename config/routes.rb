@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :profiles
-  resources :products
+  resources :products, defaults: { format: 'json' }
   devise_for :users
   # Defines the root path route ("/")
   root 'pages#home'
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "cart", to: 'cart#show'
   post 'cart/add'
   post 'cart/remove'
+  post "checkout/create", to: "checkout#create"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
