@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :profiles
-  resources :products, defaults: { format: 'json' }
+  resources :products
   devise_for :users
   # Defines the root path route ("/")
   root 'pages#home'

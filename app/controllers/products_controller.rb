@@ -10,6 +10,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  #Render cart preview
+  def show
+    @render_cart = true
+  end
+
   # GET /products or /products.json
   def index
     @products = Product.all

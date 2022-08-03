@@ -28,7 +28,7 @@
       <%= form_with(url: cart_add_path) do |f| %>
       <%= f.hidden_field :id, value: product.id %>
       <%= f.number_field :quantity, value: 0, min: 1 %>
-      <%= f.submit "Add to cart", class: "btn" %>
+      <%= f.submit "I want to buy this amount", class: "btn" %>
     <% end %>
     </p>
 

@@ -16,12 +16,8 @@ class CartController < ApplicationController
     end
 
     respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: [turbo_stream.replace('cart',
-                                                   partial: 'cart/cart',
-                                                   locals: { cart: @cart }),
-                              turbo_stream.replace(@product)]
-      end
+      format.turbo_stream { render turbo_stream: turbo_stream.add(@current_orderable)}
+      format.html { redirect_to shop_url, notice: "Product was successfully added to the cart." }
     end
 
   end
@@ -30,11 +26,8 @@ class CartController < ApplicationController
     Orderable.find_by(id: params[:id]).destroy
 
     respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace('cart',
-                                                  partial: 'cart/cart',
-                                                  locals: { cart: @cart })
-      end
+      format.html { redirect_to shop_url, notice: "Products were removed from the cart." }
+      format.json { head :no_content }
     end
     
   end

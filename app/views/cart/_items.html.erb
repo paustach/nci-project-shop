@@ -1,0 +1,11 @@
+<% @cart.orderables.each do |orderable| %>
+    <% product = orderable.product %>
+    <div id="<%= "cart-#{product.id}" %>">
+        <strong><%= orderable.quantity %></strong> x
+        <strong><%= product.productName %></strong> for
+        <strong><%= product.price %></strong> each
+        <strong>Size:</strong><%= product.size %>      
+        <strong>Total:</strong>
+            <%= orderable.total %>
+    </div>
+<% end %>

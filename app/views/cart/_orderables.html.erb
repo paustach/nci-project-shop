@@ -15,12 +15,12 @@
             <%= form_with(url: cart_add_path) do |f| %>
                 <%= f.hidden_field :id, value: product.id %>
                 <%= f.number_field :quantity, value: orderable.quantity, min: 0 %>
-                <%= f.submit "Add item", class: "btn" %>
+                <%= f.submit "Update amount", class: "btn" %>
             <% end %>
             
             <%= form_with(url: cart_remove_path) do |f| %>
                 <%= f.hidden_field :id, value: orderable.id %>
-                <%= f.submit "Remove item", class: "btn" %>
+                <%= f.submit "Remove all", class: "btn" %>
             <% end %>
                 
             <strong>Total:</strong>
