@@ -4,4 +4,4 @@ var checkoutButton = document.getElementById('checkout-button');
 stripe.redirectToCheckout({
     sessionId: '<%= @session.id %>'
   }).then(function (result) {
-  });
+});

@@ -11,13 +11,12 @@ class CheckoutController < ApplicationController
                 quantity: 1,
             }],
             mode: 'payment',
-            success_url: root_url,
-            cancel_url: root_url,
+            success_url: success_url,
+            cancel_url: error_url,
         })
-        respond_to  do |format|
-            format.html
-            format.js
-        end
+        
+        redirect_to @session.url, allow_other_host: true
+
     end
 
 end
