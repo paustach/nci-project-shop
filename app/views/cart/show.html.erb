@@ -1,6 +1,6 @@
 <h1>Your Cart</h1>
 <% @cart.orderables.each do |orderable| %>
   <% product = orderable.product %>
-  <p><%= product.productName %> * <%= orderable.quantity %> = $<%= product.price * orderable.quantity %></p>
+  <p><%= product.productName %> * <%= orderable.quantity %> = $<%= (product.price/100) * orderable.quantity %></p>
 <% end %>
-<p>Your total is $<%= @cart.total %> </p>
+<p>Your total is $<%= @cart.total/100 %> </p>

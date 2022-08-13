@@ -6,7 +6,7 @@
                 <strong><%= product.productName %></strong>
             </p>
             <p>
-                <strong>Price:</strong><%= product.price %>
+                <strong>Price:</strong><%= number_to_currency(product.price/100) %>
             </p>
             <p>
                 <strong>Size:</strong><%= product.size %>
@@ -23,8 +23,8 @@
                 <%= f.submit "Remove all", class: "btn" %>
             <% end %>
                 
-            <strong>Total:</strong>
-                <%= orderable.total %>
+            <strong>Total: </strong>
+                $<%= orderable.total/100 %>
         </div>
     </div>
 <% end %>

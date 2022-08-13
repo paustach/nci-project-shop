@@ -3,9 +3,9 @@
     <div id="<%= "cart-#{product.id}" %>">
         <strong><%= orderable.quantity %></strong> x
         <strong><%= product.productName %></strong> for
-        <strong><%= product.price %></strong> each
+        <strong>$<%= product.price/100 %></strong> each
         <strong>Size:</strong><%= product.size %>      
         <strong>Total:</strong>
-            <%= orderable.total %>
+            $<%= orderable.total/100 %>
     </div>
 <% end %>

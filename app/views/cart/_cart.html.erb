@@ -2,7 +2,7 @@
     <h1>Cart</h1>
     <% if @cart.orderables.count > 0 %>
       <%= render "cart/orderables" %>
-      <p>Total: <%= @cart.total %></p>
+      <p>Total: $<%= @cart.total/100 %></p>
       <%= button_to "Pay now", checkout_create_path, remote: true %>
     <% else %>
       <p>Your cart is empty</p>

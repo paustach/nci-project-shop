@@ -46,7 +46,7 @@
          <%= turbo_frame_tag "cart" do %>
             <% if @cart.orderables.count > 0 %>
               <%= render "cart/items" %>
-              <strong>Your cart Total: </strong> <%= @cart.total %>
+              <strong>Your cart Total: </strong>$<%= @cart.total/100 %>
             <% else %>
               <p>There's nothing yet</p>
             <% end %>
