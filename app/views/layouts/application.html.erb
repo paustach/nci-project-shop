@@ -55,10 +55,18 @@
               <a class="nav-link" href="/contact">Contact</a>
             </li>
 
+            <!-- DEVISE --> 
+
             <% if user_signed_in? %>
               <li class="nav-item">
                 <a class="nav-link" href="/signedinuserprofile">My profile</a>
               </li>
+              <li class="nav-item">
+                <%= button_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn actionbtn" %>
+              </li>
+            <% else %>
+              <li class="nav-item"><a href="/users/sign_up" class="nav-link">Register</a></li>
+              <li class="nav-item"><%= link_to 'Log in', new_user_session_path, class: "btn actionbtn" %></li>
             <%end%>
 
             <% if current_user.try(:admin?) %> 
@@ -70,10 +78,13 @@
                 <li><a class="dropdown-item" href="/profiles">Profiles</a></li>
                 <li><a class="dropdown-item" href="/profiles/new">New Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="/products/new">New Product</a></li>
               </ul>
             </li>
             <%end%>
+
+            <!-- DEVISE --> 
+
           </ul>
         </div>
       </div>
@@ -81,21 +92,16 @@
     </header>
     <!--HEADER & NAVBAR END -->
 
-    <!-- DEVISE START --> 
+    <!-- DEVISE --> 
 
     <% if user_signed_in? %>
-      <div>Signed in as... <%= current_user.email %>
-        <%= button_to 'Sign out', destroy_user_session_path, :method => :delete %>
-      </div>
-    <% else %>
-      <%= link_to 'Register', new_user_registration_path %> or
-      <%= link_to 'Sign in', new_user_session_path %>
+      Signed in as... <%= current_user.email %>
     <% end %>
 
     <p class="notice" style="color: green"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <!-- DEVISE END --> 
+    <!-- DEVISE --> 
 
     <!-- BODY START --> 
     <body>

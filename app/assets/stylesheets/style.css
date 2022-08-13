@@ -71,21 +71,12 @@ ul {
 .navbar-custom .navbar-nav .nav-link {
     background-color: #F0EFE5;
     color: #120907; 
+    padding: 15px;
 }
 
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav  {
+.nav-link:hover {
     color: #F0EFE5 !important;
     background-color: #120907 !important;
-}
-.nav-link.active {
-    color: #D65472 !important;
-}
-
-/*--- Pictures ---*/
-.photo {
-    border-radius: 20px;
-    opacity: 0.7;
 }
 
 /*--- Other ---*/

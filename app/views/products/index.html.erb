@@ -40,7 +40,7 @@
 
 <div class="container">
   <div class="row row-cols-4">
-    <div class="col">
+    <div class="col-12 col-md-12 col-lg-3">
     <!--- Shopping cart preview start --->
     <h3>Currently in your cart:</h3>
          <%= turbo_frame_tag "cart" do %>
@@ -54,7 +54,7 @@
     <!--- Shopping cart preview end --->
     </div>
     <% @products.each do |product| %>
-    <div class="col">
+    <div class="col-12 col-md-6 col-lg-3">
 
       <div class="card" style="width: 18rem;">
         <%= link_to image_tag(product.image_url(:profile_size)), product %> 
@@ -69,7 +69,7 @@
               <%= f.submit "I want to buy this amount", class: "btn" %>
             <% end %>
 
-          <%= button_to "Buy now", checkout_create_path, params: {id: product.id}, remote: true %>
+          <%= button_to "Buy this item now", checkout_create_path, params: {id: product.id}, remote: true, class: "btn actionbtn" %>
           <%= link_to "More info", product, class:"btn btn-primary" %>
         </div>
       </div>
